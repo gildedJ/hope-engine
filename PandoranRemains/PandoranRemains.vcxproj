@@ -133,10 +133,12 @@
       <Command>xcopy /y /d "$(SolutionDir)Build\$(ProjectName)\$(Platform)\$(Configuration)\PandoranRemains.dll" "$(SolutionDir)"</Command>
     </PostBuildEvent>
     <PreLinkEvent>
-      <Command>del $(SolutionDir)Build\$(ProjectName)\$(Platform)\$(Configuration)\*.pdb</Command>
+      <Command>
+      </Command>
     </PreLinkEvent>
     <PreBuildEvent>
-      <Command>del $(IntDir)*.pdb</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
