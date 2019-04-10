@@ -3,27 +3,34 @@
 #include "include\math_utils.h"
 #include "Tile.h"
 
-struct World
-{
-  real32 TileSizeInMeters; // 5ft
-  int32 TileSizeInPixels;
 
-  int32 TileWidth;
-  int32 TileHeight;
-  
-  int32 ChunkWidth;
-  int32 ChunkHeight;
-
+struct MapChunk {
 
   Tile* Tiles;
 };
 
-typedef Vector3i ChunkIndex;
+struct World
+{
+  MapChunk* Chunks;
+};
+
+typedef Vector2i TileIndex;
+typedef Vector2i ChunkIndex;
 
 struct WorldPosition
 {
-  ChunkIndex Chunk;
+  Vector2i Absolute;
   Vector2 Relative;
+
+  inline WorldPosition& operator+=(const Vector2& v);
+  inline WorldPosition& operator-=(const Vector2& v);
+  inline WorldPosition operator+(const Vector2& v) const { WorldPosition result = *this; result += v; return result; }
+  inline WorldPosition operator-(const Vector2& v) const { WorldPosition result = *this; result -= v; return result; }
 };
 
+
+void Settle(WorldPosition* position);
+ChunkIndex GetChunkIndex(WorldPosition* position);
+TileIndex GetTileIndex(WorldPosition* position);
+MapChunk* GetMapChunk(World *world, ChunkIndex chunkIndex);
 int32 Hash(ChunkIndex index);

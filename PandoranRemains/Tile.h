@@ -24,4 +24,3 @@ struct Tile {
   Rect Collision;
   bool32 Flags;
 };
-

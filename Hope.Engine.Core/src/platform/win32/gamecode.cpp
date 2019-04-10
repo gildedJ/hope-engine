@@ -7,8 +7,7 @@ GAME_UPDATE_AND_RENDER(UpdateAndRenderStub) {}
 void Win32_LoadGameCode(win32_game_code* code)
 {
   // Load DLL
-  CopyFile("PandoranRemains.dll", "PandoranRemains_live.dll", false);
-  code->CodeDLL = LoadLibraryA("PandoranRemains_live.dll");
+  code->CodeDLL = LoadLibraryA("PandoranRemains.dll");
   if (code->CodeDLL)
   {
     // Update and Render

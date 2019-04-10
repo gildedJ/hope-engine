@@ -1,7 +1,7 @@
 #pragma once
 
 #include "include\math_utils.h"
-
+#include "World.h"
 
 struct Entity {
   Vector2 Position;
